@@ -1,0 +1,32 @@
+rv-pyseqaudio, an RV package for easily adding audio to a sequence of image sources.
+
+Installation
+===
+
+ 1) Create a package file:
+
+	$ zip -j seqaudio-1.0.rvpkg rv-pyseqaudio/*
+
+ 2) Copy the package to your RV support area:
+
+ 	$ cp seqaudio-1.0.rvpkg $RVHOME/PlugIns/Packages
+
+ 3) Install the package in RV; either in the UI or via the command-line:
+
+ 	$ rvpkg --install $RVHOME/PlugIns/Packages/seqaudio-1.0.rvpkg
+
+Usage
+===
+
+ 1) With a sequence of image sources selected, from the Audio menu, select
+    'Add Audio to Sequence' and pick an audio file.
+
+ 2) A new stack is created, using your sequence as the "video track" and the
+    audio file as the "audio track".
+
+Limitations
+===
+
+ 1) Stack length is equal to the longest input. I.e. if the audio is longer than
+    the video, the "video track" will be black.
+

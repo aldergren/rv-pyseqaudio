@@ -1,0 +1,24 @@
+package: Audio for Sequence
+author: Niklas Aldergren
+contact: niklas@aldergren.com
+version: 1.0
+requires: ''
+rv: 3.12.14
+url: https://github.com/aldergren/rv-pyseqaudio
+
+modes: 
+  - file: seqaudio.py
+    shortcut: ''
+    event: ''
+    load: immediate
+
+description: |
+    <p>
+    This package simplifies adding an audio track to a sequence of image sources.
+    </p>
+
+    <h2>How it works</h2>
+    <p>
+    This creates a new stack with two inputs; a sequence (containing all sources
+    in the sequence that was active) and the selected audio file.
+    </p>
