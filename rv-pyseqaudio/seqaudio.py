@@ -9,23 +9,23 @@ class AudioForSequence(rvtypes.MinorMode):
         # sequence of all the current sources, and the second the selected audio file.
         selected_files = commands.openMediaFileDialog(False, commands.OneExistingFile, "", "", "")
 
-        # Create a new source for the selected file. We'll do this here to fail early
-        # and not leave junk nodes laying around.
-        audio_source = commands.addSourceVerbose([selected_files[0]], "")
-        audio_group = commands.nodeGroup(audio_source)
-
-        # Create a new sequence. We're assuming here that the current sequence is the default
-        # sequence, which always contains all sources known to RV. We'll need our own copy since
-        # we want to keep the audio out of our "video track".
-        sequence = commands.newNode("RVSequenceGroup", "SequenceForAudioStack")
-
-        # Find all the sources connected to the current sequence, and connect them to the new one.
+        # Find all the sources connected to the current sequence, and save them for later.
         current_sources = []
         current_sequence = commands.viewNode()
         inputs, _ = commands.nodeConnections(current_sequence, False)
         for node in inputs:
             if commands.nodeType(node) == "RVSourceGroup":
                 current_sources.append(node)
+
+        # Create a new source for the selected file. We'll do this here to fail early
+        # and not leave junk nodes laying around.
+        audio_source = commands.addSourceVerbose([selected_files[0]], "")
+        audio_group = commands.nodeGroup(audio_source)
+
+        # Create a new sequence and connect the sources. We're assuming here that the current sequence 
+        # is the default sequence, which always contains all sources known to RV. We'll need our own copy 
+        # since we want to keep the audio out of our "video track".
+        sequence = commands.newNode("RVSequenceGroup", "SequenceForAudioStack")
         commands.setNodeInputs(sequence, current_sources)
 
         # Create the stack and connect the two sources.
