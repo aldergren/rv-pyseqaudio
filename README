@@ -5,15 +5,15 @@ Installation
 
  1) Create a package file:
 
-	$ zip -j seqaudio-1.0.rvpkg rv-pyseqaudio/*
+	$ zip -j seqaudio-1.0.1.rvpkg rv-pyseqaudio/*
 
  2) Copy the package to your RV support area:
 
- 	$ cp seqaudio-1.0.rvpkg $RVHOME/PlugIns/Packages
+ 	$ cp seqaudio-1.0.1.rvpkg $RVHOME/PlugIns/Packages
 
  3) Install the package in RV; either in the UI or via the command-line:
 
- 	$ rvpkg --install $RVHOME/PlugIns/Packages/seqaudio-1.0.rvpkg
+ 	$ rvpkg --install $RVHOME/PlugIns/Packages/seqaudio-1.0.1.rvpkg
 
 Usage
 ===
