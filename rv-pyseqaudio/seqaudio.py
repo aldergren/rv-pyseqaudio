@@ -60,7 +60,9 @@ class AudioForSequence(rvtypes.MinorMode):
                   None,
                   None,
                   [ ("Audio", 
-                    [ ("Add Audio to Sequence", self.add_audio, "", self.menu_state_add_audio) ])
+                    [ ("_", None),
+                      ("Add Audio to Sequence", self.add_audio, "", self.menu_state_add_audio) 
+                    ])
                   ])
 
 
